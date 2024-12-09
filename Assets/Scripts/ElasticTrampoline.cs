@@ -102,29 +102,14 @@ public class ElasticTrampoline : MonoBehaviour
             }
         }
     }
-
-   bool IsFixedVertex(int index)
-{
-    Bounds bounds = mesh.bounds;
-    Vector3 vertex = originalVertices[index];
-    return Mathf.Abs(vertex.x - bounds.min.x) < 0.01f ||
-           Mathf.Abs(vertex.x - bounds.max.x) < 0.01f ||
-           Mathf.Abs(vertex.z - bounds.min.z) < 0.01f ||
-           Mathf.Abs(vertex.z - bounds.max.z) < 0.01f;
-}
-
-
-    void OnDrawGizmos()
+// avgör om en specifik vertexpunkt av nätet ska förbli stillastående
+    bool IsFixedVertex(int index)
     {
-        if (mesh == null) return;
-
-        for (int i = 0; i < displacedVertices.Length; i++)
-        {
-            foreach (int neighborIndex in neighborIndices[i])
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawLine(displacedVertices[i], displacedVertices[neighborIndex]);
-            }
-        }
+        Bounds bounds = mesh.bounds;
+        Vector3 vertex = originalVertices[index];
+        return Mathf.Abs(vertex.x - bounds.min.x) < 0.01f ||
+               Mathf.Abs(vertex.x - bounds.max.x) < 0.01f ||
+               Mathf.Abs(vertex.z - bounds.min.z) < 0.01f ||
+               Mathf.Abs(vertex.z - bounds.max.z) < 0.01f;
     }
 }
