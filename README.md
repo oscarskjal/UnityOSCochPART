@@ -1,1 +1,1 @@
-My final project in a programming course called Oscillations and partikelsystems. Coded using C# in unity.
+My final project in a programming course called Oscillations and particlesystems. Coded using C# in unity.
